@@ -365,7 +365,11 @@ function initNextLevel() {
     game.sfx && sounds.levelCompleted.play();
     ctx.font = '50px ArcadeClassic';
     ctx.fillStyle = 'yellow';
-    ctx.fillText(`LEVEL ${game.level}!`, canvas.width / 2 - 80, canvas.height / 2);
+	if (game.whoseturn == 1) {
+    ctx.fillText(`LEVEL ${game.level1}!`, canvas.width / 2 - 80, canvas.height / 2);
+	else {
+	ctx.fillText(`LEVEL ${game.level2}!`, canvas.width / 2 - 80, canvas.height / 2);	
+	}
 }
 
 function isGameOver() {
