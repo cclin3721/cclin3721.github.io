@@ -1,14 +1,11 @@
-# js-breakout
+# js-breakout-with-ML
 
-JavaScript Breakout Game.
+JavaScript Breakout Game with ML.
 
 - [Play the game](https://affectionate-shockley-c3f5d7.netlify.app/) or download and open `index.html`.
 
 - [Read the blog](https://levelup.gitconnected.com/game-development-breakout-in-javascript-5e5d142d3203?sk=2c6ab1781b1ee362f652b1f88b1b4220) of making the game.
 
-- Check out my [Tetris game](https://github.com/melcor76/js-tetris).
-
-![breakout picture](assets/share-image-large.png)
 
 ## Resources
 
