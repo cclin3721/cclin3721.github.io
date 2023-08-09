@@ -77,14 +77,14 @@ function play() {
 }
 
 function resetGame() {
-    game.speed1 = 5;
-	game.speed2 = 5;
+    game.speed1 = 6;
+	game.speed2 = 6;
     game.score1 = 0;
     game.score2 = 0;
     game.level1 = 1;
 	game.level2 = 1;
-    game.lives1 = 3;
-	game.lives2 = 3;
+    game.lives1 = 2;
+	game.lives2 = 2;
     game.time = { start: performance.now(), elapsed: 0, refreshRate: 16  };
 }
 
@@ -109,7 +109,11 @@ function resetBall() {
 
 function resetPaddle() {
     paddle.x = (canvas.width - paddle.width) / 2;
-    paddle.dx = game.speed + 7;
+	if(game.whoseturn==1){
+    paddle.dx = game.speed1 + 7;
+	}else{
+	paddle.dx = game.speed2 + 7;
+	}
 }
 
 function initBricks() {
@@ -366,9 +370,9 @@ function initNextLevel() {
     ctx.font = '50px ArcadeClassic';
     ctx.fillStyle = 'yellow';
 	if (game.whoseturn == 1) {
-    ctx.fillText(`LEVEL ${game.level1}!`, canvas.width / 2 - 80, canvas.height / 2);
-	else {
-	ctx.fillText(`LEVEL ${game.level2}!`, canvas.width / 2 - 80, canvas.height / 2);	
+    ctx.fillText(`LEVEL ${game.level1}!`, canvas.width / 2 - 120, canvas.height / 2);
+	}else {
+	ctx.fillText(`LEVEL ${game.level2}!`, canvas.width / 2 - 120, canvas.height / 2);	
 	}
 }
 
