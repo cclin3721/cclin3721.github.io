@@ -3,6 +3,10 @@ const ctx = canvas.getContext('2d');
 document.addEventListener('keydown', keyDownHandler);
 document.addEventListener('keyup', keyUpHandler);
 document.addEventListener("mousemove", mouseMoveHandler)
+canvas.addEventListener("touchstart", touchHandler, true);
+canvas.addEventListener("touchend", touchHandler, true);
+canvas.addEventListener("touchcancel", touchHandler, true);
+canvas.addEventListener("touchmove", touchHandler, true);
 
 let game = {    
     requestId: null,
@@ -337,6 +341,23 @@ function mouseMoveHandler(e) {
     if(isInsideCourt()) {
         paddle.x = mouseX - paddle.width / 2;
     }
+}
+
+function touchHandler(event) {
+    var touch = event.changedTouches[0];
+
+    var simulatedEvent = document.createEvent("MouseEvent");
+        simulatedEvent.initMouseEvent({
+        touchstart: "mousedown",
+        touchmove: "mousemove",
+        touchend: "mouseup"
+    }[event.type], true, true, window, 1,
+        touch.screenX, touch.screenY,
+        touch.clientX, touch.clientY, false,
+        false, false, false, 0, null);
+
+    touch.target.dispatchEvent(simulatedEvent);
+    event.preventDefault();
 }
 
 function isLevelCompleted() {
