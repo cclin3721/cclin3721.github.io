@@ -203,6 +203,7 @@ function drawScore() {
 	const { level1, score1 } = game;
     ctx.fillText(`人:第${level1}關`, 5, 23);
     ctx.fillText(`Score: ${score1}`,  100, 23);
+	document.getElementById('Message').value = score1;
 	//}else {
 	ctx. fillStyle = 'white';
 	const { level2, score2 } = game;

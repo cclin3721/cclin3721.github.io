@@ -31,13 +31,23 @@
 <!--        <h1 class="title">Breakout</h1> -->
         <div class="controls">
 		<p style="display:inline-block;">
-		<img src="./images/mitac-logo.png" width="120" height="70" ></img>
-		<img src="./images/logo.png" width="90" height="60" ></img>
+		<img src="./images/mitac-logo.png" width="90" height="40" ></img>
+		<img src="./images/logo.png" width="60" height="40" >  AI Game</img>
 		<br>
+		<div class="flex flex-col w-full mb-4">
+		  <form class="mb-4 flex flex-wrap justify-between" id="form">
+          <label class="field-label" name="email" id="email">姓名</label>
+          <input class="bg-green-100 px-2 py-1 outline-none" type="text" name="Name" id="email">
+          <label class="field-label" name="password">分數</label>
+          <input class="bg-green-100 px-2 py-1 outline-none" type="text" name="Message" id="Message">
+		<button class="bg-orange-300 px-3 py-1 text-white mx-auto" type="submit">上傳</button>
+		 </form>
+		 </div>
+
 <!--            <p>Music: M</p>   -->
 <!--             <p>SFX: S</p>  --> 
-        Regression and Feature selection<br>
-        Use keys/Mouse, Volume: ↑ ↓  ,  Start: Space></p>
+ 
+        <!-- Use keys/Mouse, Volume: ↑ ↓  ,  Start: Space></p>  -->
 		<br>
         <button id="play-button" onclick="play()"> START </button>  
         </div>
@@ -49,5 +59,22 @@
     <br/>
 
     <script type="text/javascript" src="breakout.js"></script>
+	
 </body>
+
+<script>
+  const form = document.querySelector("#form")
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwdEJvCyeXDrY4KYQIVnGWJSFHLcfq4kbLkftbVWWwHW83_MHAo1vNJtU5LXaXUfLpQ/exec'
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+  const formData = new FormData(document.getElementById('form'));
+
+  const responseBody = formData
+
+    fetch(scriptURL, { method: 'POST', body: responseBody })
+      .then(response => { alert('Success!', response) })
+      .catch(error => alert('Error!', error.message))
+  })
+</script>
 </html>
