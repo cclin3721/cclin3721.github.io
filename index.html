@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
     <title>JavaScript Breakout</title>
     <meta property="og:title" content="JavaScript Breakout" />
     <meta name="description" content="Breakout game made with JavaScript." />
@@ -39,7 +39,7 @@
           <label class="field-label" name="email" id="email">姓名</label>
           <input class="bg-green-100 px-2 py-1 outline-none" type="text" name="Name" id="email">
           <label class="field-label" name="password">分數</label>
-          <input class="bg-green-100 px-2 py-1 outline-none" type="text" name="Message" id="Message">
+          <input class="bg-green-100 px-2 py-1 outline-none" type="text" name="Score" id="Message">
 		<button class="bg-orange-300 px-3 py-1 text-white mx-auto" type="submit">上傳</button>
 		 </form>
 		 </div>
@@ -68,9 +68,9 @@
 
   form.addEventListener('submit', e => {
     e.preventDefault()
-  const formData = new FormData(document.getElementById('form'));
+	
+  const responseBody = new FormData(form)
 
-  const responseBody = formData
 
     fetch(scriptURL, { method: 'POST', body: responseBody })
       .then(response => { alert('Success!', response) })
