@@ -407,13 +407,18 @@ function isGameOver() {
 		if (game.whoseturn == 1) {
 			game.lives1 -= 1;
 			game.whoseturn = 2;
+			alert("換AI玩，它還有"+game.lives2+"條命")
+
 		}
 		else if (game.whoseturn == 2) {
 			game.lives2 -= 1;
 			game.whoseturn = 1;
+			if (game.lives1 > 0)
+			alert("換你玩,你還有"+game.lives1+"條命")
+
 		}
 		//alert(game.whoseturn)
-        if (game.lives2 === 0) {
+        if (game.lives2 == 0) {
             gameOver();
             return true;
         }
